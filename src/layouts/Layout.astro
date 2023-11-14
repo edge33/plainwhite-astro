@@ -1,189 +1,89 @@
 ---
 import '../styles.astro';
-import plainwhiteConfig from "../plainwhite.config";
+import plainwhiteConfig from '../plainwhite.config';
+import Footer from './Footer.astro';
 
 interface Props {
-	title: string;
-	pageType: 'page' | 'post' | 'home';
+    title: string;
+    pageType: 'page' | 'post' | 'home';
 }
 const { title, pageType } = Astro.props;
 
-const { plainwhite: {html_lang, name, condensed_mobile, dark_mode, portfolio_image_dark, portfolio_image, tagline}} = plainwhiteConfig;
+const {
+    plainwhite: {
+        html_lang,
+        name,
+        condensed_mobile,
+        dark_mode,
+        portfolio_image_dark,
+        portfolio_image,
+        tagline,
+    },
+} = plainwhiteConfig;
 
-const condensedClass = condensed_mobile.includes(pageType) ? 'condensed' : ''
-
+const condensedClass = condensed_mobile.includes(pageType) ? 'condensed' : '';
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={html_lang}>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-	<main class="container">
-		<section class="about">
-			<div class={`about-header ${condensedClass}`}>
-				<div class="about-title">
-					<a href="/">
-						{portfolio_image_dark.length && dark_mode ?(
-							<img class="light" src={`/${portfolio_image_dark}`} alt={name} />
-							<img class="dark" src={`/${portfolio_image}`} alt={name}  />
-						): (
-							<img src={`/${portfolio_image}`} alt={name} />
-						)}
-					</a>
-					<h2 id="title">
-						<a href="/">{name}</a>
-					</h2>
-				</div>
-				{tagline.length && (
-					<p class="tagline">{tagline}</p>
-				)}
-			</div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700"
+            rel="stylesheet"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title></head
+    >
 
-		</section>
-		<section class="content">
-			<slot/>
-		</section>
-		<footer class="{{condensed_class}}">
-			<!--{% capture footer %}
-			{%- if site.plainwhite.social_links != '' -%}
-			<ul class="social about-footer {{condensed_class}}">
-				{%- if site.plainwhite.social_links.github -%}
-				<a href="https://github.com/{{ site.plainwhite.social_links.github }}" target="_blank">
-					<li>
-						<i class="icon-github-circled"></i>
-					</li>
-				</a>
-				{%- endif -%}
-				{%- if site.plainwhite.social_links.gitlab -%}
-				<a href="https://gitlab.com/{{ site.plainwhite.social_links.gitlab }}" target="_blank">
-					<li>
-						<i class="icon-gitlab"></i>
-					</li>
-				</a>
-				{%- endif -%}
-				{%- if site.plainwhite.social_links.linkedIn -%}
-				<a href="https://www.linkedin.com/{{ site.plainwhite.social_links.linkedIn }}" target="_blank">
-					<li>
-						<i class="icon-linkedin-squared"></i>
-					</li>
-				</a>
-				{%- endif -%}
-				{%- if site.plainwhite.social_links.twitter -%}
-				<a href="https://twitter.com/{{ site.plainwhite.social_links.twitter }}" target="_blank">
-					<li>
-						<i class="icon-twitter-squared"></i>
-					</li>
-				</a>
-				{%- endif -%}
-				{%- if site.plainwhite.social_links.instagram -%}
-				<a href="https://instagram.com/{{ site.plainwhite.social_links.instagram }}" target="_blank">
-					<li>
-						<i class="icon-instagram"></i>
-					</li>
-				</a>
-				{%- endif -%}
-				{%- if site.plainwhite.social_links.facebook -%}
-				<a href="https://facebook.com/{{ site.plainwhite.social_links.facebook }}" target="_blank">
-					<li>
-						<i class="icon-facebook-squared"></i>
-					</li>
-				</a>
-				{%- endif -%}
-				{%- if site.plainwhite.social_links.youtube -%}
-				<a href="https://youtube.com/{{ site.plainwhite.social_links.youtube }}" target="_blank">
-					<li>
-						<i class="icon-youtube"></i>
-					</li>
-				</a>
-				{%- endif -%}
-				{%- if site.plainwhite.social_links.pinterest -%}
-				<a href="https://pinterest.com/{{ site.plainwhite.social_links.pinterest }}" target="_blank">
-					<li>
-						<i class="icon-pinterest-squared"></i>
-					</li>
-				</a>
-				{%- endif -%}
-				{%- if site.plainwhite.social_links.dribbble -%}
-				<a href="https://dribbble.com/{{ site.plainwhite.social_links.dribbble }}" target="_blank">
-					<li>
-						<i class="icon-dribbble"></i>
-					</li>
-				</a>
-				{%- endif -%}
-				{%- if site.plainwhite.social_links.flickr -%}
-				<a href="https://flickr.com/{{ site.plainwhite.social_links.flickr }}" target="_blank">
-					<li>
-						<i class="icon-flickr"></i>
-					</li>
-				</a>
-				{%- endif -%}
-				{%- if site.plainwhite.social_links.telegram -%}
-				<a href=" https://t.me/{{ site.plainwhite.social_links.telegram }}" target="_blank">
-					<li>
-						<i class="icon-telegram"></i>
-					</li>
-				</a>
-				{%- endif -%}
-				{%- if site.plainwhite.social_links.soundcloud -%}
-				<a href=" https://soundcloud.com/{{ site.plainwhite.social_links.soundcloud }}" target="_blank">
-					<li>
-						<i class="icon-soundcloud"></i>
-					</li>
-				</a>
-				{%- endif -%}
-				{%- if site.plainwhite.social_links.email -%}
-				<a href="mailto:{{ site.plainwhite.social_links.email }}" target="_blank">
-					<li>
-						<i class="icon-mail-alt"></i>
-					</li>
-				</a>
-				{%- endif -%}
-				{%- if site.plainwhite.social_links.stackoverflow -%}
-				<a href="https://stackoverflow.com/users/{{ site.plainwhite.social_links.stackoverflow }}" target="_blank">
-					<li>
-						<i class="icon-stack-overflow"></i>
-					</li>
-				</a>
-				{%- endif -%}
-			</ul>
-			{%- endif -%}
-			{%- if site.plainwhite.navigation -%}
-			<nav class="navigation about-footer {{condensed_class}}">
-				<ul>
-					{% for link in site.plainwhite.navigation %}
-					<li>
-						<a href="{{ link.url }}">{{ link.title }}</a>
-					</li>
-					{% endfor %}
-				</ul>
-			</nav>
-			{%- endif -%}
-			<p class="about-footer {{condensed_class}}">&copy;
-				{{ "now" | date: "%Y" }}</p>
-			{%- if site.plainwhite.dark_mode -%}
-			<div class="about-footer {{condensed_class}}">
-				<p>Dark Mode
-					<i class="icon-moon"></i>
-					<label class="switch">
-						<input type="checkbox" class="dark-mode-toggle">
-						<span class="slider round" onclick="toggleDarkMode()"></span>
-					</label>
-				</p>
-			</div>
-			{%- endif -%}
-			{% endcapture %}-->
-		</footer>
-	</main>
-	<!--{% if site.plainwhite.dark_mode %}
+    <body>
+        <main class="container">
+            <section class="about">
+                <div class={`about-header ${condensedClass}`}>
+                    <div class="about-title">
+                        <a href="/">
+                            {
+                                portfolio_image_dark.length && dark_mode ? (
+                                    <>
+                                        <img
+                                            class="light"
+                                            src={`/${portfolio_image_dark}`}
+                                            alt={name}
+                                        />
+                                        <img
+                                            class="dark"
+                                            src={`/${portfolio_image}`}
+                                            alt={name}
+                                        />
+                                    </>
+                                ) : (
+                                    <img
+                                        src={`/${portfolio_image}`}
+                                        alt={name}
+                                    />
+                                )
+                            }
+                        </a>
+                        <h2 id="title">
+                            <a href="/">{name}</a>
+                        </h2>
+                    </div>
+                    {tagline.length && <p class="tagline">{tagline}</p>}
+                </div>
+                <Footer condensedClass={condensedClass} />
+            </section>
+            <section class="content">
+                <slot />
+            </section>
+            <footer class=`${condensedClass}`>
+                <Footer condensedClass={condensedClass} />
+            </footer>
+        </main>
+        <!--{% if site.plainwhite.dark_mode %}
 	<script type="text/javascript" src="{{ "/assets/js/darkmode.js" | relative_url }}"></script>
 	{% endif %}
 
@@ -201,5 +101,5 @@ const condensedClass = condensed_mobile.includes(pageType) ? 'condensed' : ''
 	<script src="{{ "/assets/js/simple-jekyll-search.min.js" | relative_url }}"></script>
 	<script src="{{ "/assets/js/search.js" | relative_url }}"></script>
 	{% endif %}-->
-	</body>
+    </body>
 </html>

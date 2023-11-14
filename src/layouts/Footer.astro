@@ -1,0 +1,42 @@
+---
+import plainwhiteConfig from '../plainwhite.config';
+
+interface Props {
+    condensedClass: string;
+}
+
+const { condensedClass } = Astro.props;
+
+// const {
+//     plainwhite: {
+//         social_links: {
+//             linkedIn,
+//             twitter,
+//             github,
+//             email,
+//             flickr,
+//             gitlab,
+//             facebook,
+//             instagram,
+//             pinterest,
+//             soundcloud,
+//             youtube,
+//             telegram,
+//             dribbble,
+//         },
+//     },
+// } = plainwhiteConfig;
+---
+
+<>
+    <ul class=`social about-footer ${condensedClass}`>
+        <a
+            href="https://github.com/{{ site.plainwhite.social_links.github }}"
+            target="_blank"
+        >
+            <li>
+                <i class="icon-github-circled"></i>
+            </li>
+        </a>
+    </ul>
+</>
