@@ -1,0 +1,62 @@
+---
+import './dark.scss';
+import './toggle.scss';
+import plainwhiteConfig from '../../plainwhite.config';
+interface Props {
+    condensedClass: string;
+}
+
+const {
+    plainwhite: { dark_mode },
+} = plainwhiteConfig;
+
+const { condensedClass } = Astro.props;
+---
+
+<script>
+    const toggleDarkMode = () => {
+        const DARK_CLASS = 'dark';
+
+        const container = document.querySelector('html');
+        if (container.classList.contains(DARK_CLASS)) {
+            setCookie('theme', 'light', 365);
+            container.classList.remove(DARK_CLASS);
+        } else {
+            setCookie('theme', 'dark', 365);
+            container.classList.add(DARK_CLASS);
+        }
+    };
+
+    const setCookie = (name, value, days) => {
+        const d = new Date();
+        d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
+        document.cookie =
+            name +
+            '=' +
+            value +
+            ';path=/;SameSite=strict;expires=' +
+            d.toUTCString();
+    };
+
+    function toggleSwitch() {
+        if (document.querySelector('html').classList.contains('dark')) {
+            document
+                .querySelectorAll<HTMLInputElement>('.dark-mode-toggle')
+                .forEach((ti) => (ti.checked = true));
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', toggleSwitch);
+    document.querySelector('#toggle').addEventListener('click', toggleDarkMode);
+</script>
+
+<div class={`about-footer ${condensedClass}`}>
+    <p>
+        Dark Mode
+        <i class="icon-moon"></i>
+        <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle" />
+            <span class="slider round" id="toggle"></span>
+        </label>
+    </p>
+</div>

@@ -1,0 +1,22 @@
+---
+import plainwhiteConfig from '../../plainwhite.config';
+const {
+    plainwhite: { dark_mode },
+} = plainwhiteConfig;
+---
+
+
+{dark_mode && <script>
+    const getCookie = (name) => {
+        const v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+        return v ? v[2] : null;
+    };
+
+    const userPrefersDark =
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = getCookie('theme');
+    if ((theme === null && userPrefersDark) || theme === 'dark') {
+        document.querySelector('html').classList.add('dark');
+    }
+</script>}

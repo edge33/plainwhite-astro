@@ -1,0 +1,16 @@
+---
+import plainwhiteConfig from '../../plainwhite.config';
+import './search.scss';
+const {
+    plainwhite: { search },
+} = plainwhiteConfig;
+---
+
+<script define:vars={{ search }}>
+    (async () => {
+        if (search) {
+            await import('/js/simple-jekyll-search.min.js');
+            await import('/js/search.js');
+        }
+    })();
+</script>

@@ -1,7 +1,10 @@
 ---
 import '../styles.astro';
 import plainwhiteConfig from '../plainwhite.config';
-import Footer from './Footer.astro';
+import Footer from '../components/Footer.astro';
+import Search from '../components/Search/Search.astro';
+import InitDarkMode from '../components/DarkMode/InitDarkMode.astro';
+// import GoogleTagManager from '../components/GoogleTagManager.astro';
 
 interface Props {
     title: string;
@@ -11,6 +14,7 @@ const { title, pageType } = Astro.props;
 
 const {
     plainwhite: {
+        search,
         html_lang,
         name,
         condensed_mobile,
@@ -24,7 +28,6 @@ const {
 const condensedClass = condensed_mobile.includes(pageType) ? 'condensed' : '';
 ---
 
-<!doctype html>
 <html lang={html_lang}>
     <head>
         <meta charset="UTF-8" />
@@ -37,8 +40,9 @@ const condensedClass = condensed_mobile.includes(pageType) ? 'condensed' : '';
         />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-        <title>{title}</title></head
-    >
+        <title>{title}</title>
+        <InitDarkMode />
+    </head>
 
     <body>
         <main class="container">
@@ -83,23 +87,8 @@ const condensedClass = condensed_mobile.includes(pageType) ? 'condensed' : '';
                 <Footer condensedClass={condensedClass} />
             </footer>
         </main>
-        <!--{% if site.plainwhite.dark_mode %}
-	<script type="text/javascript" src="{{ "/assets/js/darkmode.js" | relative_url }}"></script>
-	{% endif %}
 
-	{%- if site.plainwhite.analytics_id -%}
-	<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.plainwhite.analytics_id }}"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-		gtag('config', '{{ site.plainwhite.analytics_id }}');
-	</script>
-	{%- endif -%}
-
-	{% if site.plainwhite.search %}
-	<script src="{{ "/assets/js/simple-jekyll-search.min.js" | relative_url }}"></script>
-	<script src="{{ "/assets/js/search.js" | relative_url }}"></script>
-	{% endif %}-->
+        <!--<GoogleTagManager />-->
+        <Search />
     </body>
 </html>

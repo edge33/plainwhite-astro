@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+export const getStaticPaths = async () => {
+    const posts = await Astro.glob('../posts/*.markdown');
+    return posts.map((post) => ({
+        params: {
+            slug: post.frontmatter.slug,
+        },
+        props: {
+            post,
+        },
+    }));
+};
+
+const { Content, frontmatter } = Astro.props.post;
+---
+
+<Layout title={frontmatter.title}>
+    <div class="post-container">
+        <a class="post-link" href={`${frontmatter.slug}`}>
+            <h2 class="post-title">{frontmatter.title}</h2>
+        </a>
+        <div class="post-meta">
+            <div class="post-date">
+                <i class="icon-calendar"></i>{frontmatter.date.split(' ')[0]}
+            </div>
+            {
+                frontmatter.categories.split(' ').length && (
+                    <ul class="post-categories">
+                        {frontmatter.categories.split(' ').map((c) => (
+                            <li>{c}</li>
+                        ))}
+                    </ul>
+                )
+            }
+        </div>
+        <div class="post">
+            <Content />
+        </div>
+    </div>
+</Layout>

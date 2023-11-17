@@ -1,5 +1,69 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import plainwhiteConfig from '../plainwhite.config';
+
+const posts = await Astro.glob('../posts/*.markdown');
+
+const {
+    plainwhite: { search },
+    show_excerpts,
+} = plainwhiteConfig;
 ---
 
-<Layout title="Welcome to Astro." />
+<Layout title="Welcome to Astro.">
+    <ul class="posts">
+        <li class="posts-labelgroup" id="posts-labelgroup">
+            <h1 id="posts-label">posts</h1>
+            {
+                search && (
+                    <div class="search-container">
+                        <div class="search-section">
+                            <i class="icon-search" />
+                            <input
+                                type="text"
+                                name="search"
+                                id="searchbar"
+                                autocomplete="off"
+                                aria-label="search in posts"
+                            />
+                        </div>
+                        <div
+                            class="search-results"
+                            id="search-results"
+                            data-placeholder="No Results"
+                            style="display: none;"
+                        />
+                    </div>
+                )
+            }
+        </li>
+
+        {
+            posts.map((p) => (
+                <li>
+                    <a class="post-link" href={`${p.frontmatter.slug}`}>
+                        <h2 class="post-title">{p.frontmatter.title}</h2>
+                    </a>
+                    <div class="post-meta">
+                        <div class="post-date">
+                            <i class="icon-calendar" />
+                            {`${p.frontmatter.date.split(' ')[0]}`}
+                        </div>
+                        {p.frontmatter.categories.length && (
+                            <ul class="post-categories">
+                                {p.frontmatter.categories
+                                    .split(' ')
+                                    .map((c) => (
+                                        <li>{c}</li>
+                                    ))}
+                            </ul>
+                        )}
+                    </div>
+                    <div class="post">
+                        <p>{show_excerpts && p.frontmatter.excerpt}</p>
+                    </div>
+                </li>
+            ))
+        }
+    </ul>
+</Layout>

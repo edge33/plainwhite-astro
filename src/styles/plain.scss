@@ -145,6 +145,14 @@ main {
     i {
       font-size: 34px;
     }
+    svg {
+      width: 1em;
+      margin-right: .2em;
+      text-align: center;
+      font-size: 34px;
+      margin-left: .2em;
+
+    }
   }
 }
 
@@ -333,4 +341,9 @@ footer {
     }
     border-top: 1px solid #eee;
   }
+}
+
+.astro-code {
+  margin: 0;
+  padding: 21px 20px;
 }

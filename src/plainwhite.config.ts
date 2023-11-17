@@ -17,23 +17,30 @@ export default {
         portfolio_image_dark: '',
         html_lang: 'en', // set the lang attribute of the <html> tag for the pages. See here for a list of codes: https://www.w3schools.com/tags/ref_country_codes.asp
         condensed_mobile: ['page', 'post'],
+        analytics_id: undefined,
         social_links: {
             twitter: 'samarsault',
             github: 'samarsault',
             linkedIn: 'in/samarsault',
-            dribbble: 'samarsault',
-            flickr: 'samarsault',
-            instagram: 'samarsault',
-            pinterest: 'samarsault',
-            youtube: 'samarsault',
-            facebook: 'samarsault',
-            soundcloud: 'samarsault',
-            telegram: 'samarsault',
-            gitlab: 'samarsault',
-            email: 'samarsault',
+            // dribbble: 'samarsault',
+            // flickr: 'samarsault',
+            // instagram: 'samarsault',
+            // pinterest: 'samarsault',
+            // youtube: 'samarsault',
+            // facebook: 'samarsault',
+            // soundcloud: 'samarsault',
+            // telegram: 'samarsault',
+            // gitlab: 'samarsault',
+            // email: 'samarsault',
+            // stackoverflow: 'samarsault',
         },
         // mastodon: [
         //     { username: "jekyll", instance: "example.com" }
         // ]
+
+        // navigation: [
+        //     { title: 'My Work', url: '/my-work' },
+        //     { title: 'Resume', url: '/resume' },
+        // ],
     },
 };
