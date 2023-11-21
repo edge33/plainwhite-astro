@@ -1,8 +1,9 @@
 ---
+import Search from '../components/Search/Search.astro';
 import Layout from '../layouts/Layout.astro';
 import plainwhiteConfig from '../plainwhite.config';
 
-const posts = await Astro.glob('../posts/*.markdown');
+const posts = await Astro.glob('../content/blog/*.md');
 
 const {
     plainwhite: { search },
@@ -10,32 +11,11 @@ const {
 } = plainwhiteConfig;
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Welcome to Astro." pageType="home">
     <ul class="posts">
         <li class="posts-labelgroup" id="posts-labelgroup">
             <h1 id="posts-label">posts</h1>
-            {
-                search && (
-                    <div class="search-container">
-                        <div class="search-section">
-                            <i class="icon-search" />
-                            <input
-                                type="text"
-                                name="search"
-                                id="searchbar"
-                                autocomplete="off"
-                                aria-label="search in posts"
-                            />
-                        </div>
-                        <div
-                            class="search-results"
-                            id="search-results"
-                            data-placeholder="No Results"
-                            style="display: none;"
-                        />
-                    </div>
-                )
-            }
+            <Search posts={posts} />
         </li>
 
         {
@@ -53,7 +33,7 @@ const {
                             <ul class="post-categories">
                                 {p.frontmatter.categories
                                     .split(' ')
-                                    .map((c) => (
+                                    .map((c: string) => (
                                         <li>{c}</li>
                                     ))}
                             </ul>

@@ -14,7 +14,6 @@ const { title, pageType } = Astro.props;
 
 const {
     plainwhite: {
-        search,
         html_lang,
         name,
         condensed_mobile,
@@ -89,6 +88,5 @@ const condensedClass = condensed_mobile.includes(pageType) ? 'condensed' : '';
         </main>
 
         <!--<GoogleTagManager />-->
-        <Search />
     </body>
 </html>

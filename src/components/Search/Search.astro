@@ -1,16 +1,94 @@
 ---
+import type { MarkdownInstance } from 'astro';
 import plainwhiteConfig from '../../plainwhite.config';
-import './search.scss';
+interface Props {
+    posts: MarkdownInstance<Record<string, object>>[];
+}
+
+const { posts } = Astro.props;
+
 const {
     plainwhite: { search },
 } = plainwhiteConfig;
 ---
 
-<script define:vars={{ search }}>
+<div class="search-container">
+    <div class="search-section">
+        <i class="icon-search"></i>
+        <input
+            type="text"
+            name="search"
+            id="searchbar"
+            autocomplete="off"
+            aria-label="search in posts"
+        />
+    </div>
+    <div
+        class="search-results"
+        id="search-results"
+        data-placeholder="No Results"
+        style="display: none;"
+    >
+    </div>
+</div>
+
+<script define:vars={{ posts }}>
     (async () => {
-        if (search) {
-            await import('/js/simple-jekyll-search.min.js');
-            await import('/js/search.js');
+        await import('/js/simple-jekyll-search.min.js');
+
+        const $searchbar = document.getElementById('searchbar');
+        const $searchResults = document.getElementById('search-results');
+
+        if (!$searchbar || !$searchResults) {
+            return;
         }
+
+        SimpleJekyllSearch({
+            searchInput: $searchbar,
+            resultsContainer: $searchResults,
+            json: '/search.json',
+            searchResultTemplate: '<a href="{url}" target="_blank">{title}</a>',
+            noResultsText: '',
+        });
+
+        /* hack ios safari unfocus */
+        if (
+            /Safari/.test(navigator.userAgent) &&
+            !/Chrome/.test(navigator.userAgent)
+        ) {
+            document.body.firstElementChild.tabIndex = 1;
+        }
+
+        const $labelGroup = document.querySelector('.posts-labelgroup');
+        const $postLabel = document.getElementById('posts-label');
+        const labelWidth = $postLabel.scrollWidth;
+
+        $postLabel.style.width = labelWidth + 'px';
+
+        $labelGroup.addEventListener(
+            'click',
+            (e) => {
+                $searchResults.style.display = null;
+                $postLabel.style.width = '0';
+                $labelGroup.setAttribute(
+                    'class',
+                    'posts-labelgroup focus-within'
+                );
+                $searchbar.focus();
+                e.stopPropagation();
+            },
+            false
+        );
+
+        $labelGroup.addEventListener('mouseleave', () => {
+            document.body.onclick = searchCollapse;
+        });
+
+        const searchCollapse = () => {
+            $searchResults.style.display = 'none';
+            $labelGroup.setAttribute('class', 'posts-labelgroup');
+            $postLabel.style.width = labelWidth + 'px';
+            document.body.onclick = null;
+        };
     })();
 </script>

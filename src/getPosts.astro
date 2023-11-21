@@ -1,0 +1,8 @@
+---
+const getPosts = async () => {
+    const posts = await Astro.glob('../posts/*.markdown');
+    return posts;
+};
+
+export default getPosts;
+---
