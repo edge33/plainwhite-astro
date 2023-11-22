@@ -1,7 +1,14 @@
 import { defineConfig } from 'astro/config';
+import plainwhiteConfig from './src/plainwhite.config';
+import sitemap from '@astrojs/sitemap';
+const {
+    plainwhite: { sitemap: enableSitemap },
+} = plainwhiteConfig;
+console.log('build with sitemap', enableSitemap);
 
 // https://astro.build/config
 export default defineConfig({
+    site: 'http://localhost',
     markdown: {
         shikiConfig: {
             // Choose from Shiki's built-in themes (or add your own)
@@ -9,10 +16,10 @@ export default defineConfig({
             // theme: 'solarized-light',
             // Alternatively, provide multiple themes
             // https://github.com/antfu/shikiji#lightdark-dual-themes
-             experimentalThemes: {
+            experimentalThemes: {
                 light: 'solarized-light',
                 dark: 'solarized-dark',
-             },
+            },
             // Add custom languages
             // Note: Shiki has countless langs built-in, including .astro!
             // https://github.com/shikijs/shiki/blob/main/docs/languages.md
@@ -20,5 +27,7 @@ export default defineConfig({
             // Enable word wrap to prevent horizontal scrolling
             wrap: true,
         },
-    }
+    },
+    ...(enableSitemap ? { integrations: [sitemap()] } : {}),
+    // integrations: [sitemap()],
 });
