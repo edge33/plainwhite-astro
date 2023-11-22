@@ -1,9 +1,5 @@
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
-
-const getPosts = async () => {
-    return await getCollection('blog');
-};
+import getPosts from '../getPosts';
 
 export const GET: APIRoute = async () => {
     const posts = await getPosts();

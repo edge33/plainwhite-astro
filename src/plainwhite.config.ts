@@ -18,6 +18,7 @@ export default {
         html_lang: 'en', // set the lang attribute of the <html> tag for the pages. See here for a list of codes: https://www.w3schools.com/tags/ref_country_codes.asp
         condensed_mobile: ['page', 'post'],
         analytics_id: undefined,
+        disqus_shortname: undefined,
         social_links: {
             twitter: 'samarsault',
             github: 'samarsault',

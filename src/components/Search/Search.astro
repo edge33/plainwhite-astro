@@ -1,15 +1,5 @@
 ---
-import type { MarkdownInstance } from 'astro';
-import plainwhiteConfig from '../../plainwhite.config';
-interface Props {
-    posts: MarkdownInstance<Record<string, object>>[];
-}
 
-const { posts } = Astro.props;
-
-const {
-    plainwhite: { search },
-} = plainwhiteConfig;
 ---
 
 <div class="search-container">
@@ -32,7 +22,7 @@ const {
     </div>
 </div>
 
-<script define:vars={{ posts }}>
+<script is:inline>
     (async () => {
         await import('/js/simple-jekyll-search.min.js');
 
@@ -43,6 +33,7 @@ const {
             return;
         }
 
+        // eslint-disable-next-line no-undef
         SimpleJekyllSearch({
             searchInput: $searchbar,
             resultsContainer: $searchResults,
