@@ -35,38 +35,51 @@ const {
     <ul class=`social about-footer ${condensedClass}`>
         {
             github && (
-                <a href={`https://github.com/${github}`} target="_blank">
-                    <li>
+                <li>
+                    <a
+                        aria-label="github"
+                        href={`https://github.com/${github}`}
+                        target="_blank"
+                    >
                         <i class="icon-github-circled" />
-                    </li>
-                </a>
+                    </a>
+                </li>
             )
         }
         {
             gitlab && (
-                <a href={`https://gitlab.com/${gitlab}`} target="_blank">
-                    <li>
+                <li>
+                    <a
+                        aria-label="gitlab"
+                        href={`https://gitlab.com/${gitlab}`}
+                        target="_blank"
+                    >
                         <i class="icon-gitlab" />
-                    </li>
-                </a>
+                    </a>
+                </li>
             )
         }
         {
             linkedIn && (
-                <a
-                    href={`https://www.linkedin.com/${linkedIn}`}
-                    target="_blank"
-                >
-                    <li>
+                <li>
+                    <a
+                        aria-label="linkedin"
+                        href={`https://www.linkedin.com/${linkedIn}`}
+                        target="_blank"
+                    >
                         <i class="icon-linkedin-squared" />
-                    </li>
-                </a>
+                    </a>
+                </li>
             )
         }
         {
             twitter && (
-                <a href={`https://twitter.com/${twitter}`} target="_blank">
-                    <li>
+                <li>
+                    <a
+                        aria-label="twitter"
+                        href={`https://twitter.com/${twitter}`}
+                        target="_blank"
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             height="1em"
@@ -74,14 +87,18 @@ const {
                         >
                             <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
                         </svg>
-                    </li>
-                </a>
+                    </a>
+                </li>
             )
         }
 
         {
             instagram && (
-                <a href={`https://instagram.com/${instagram}`} target="_blank">
+                <a
+                    aria-label="instagram"
+                    href={`https://instagram.com/${instagram}`}
+                    target="_blank"
+                >
                     <li>
                         <i class="icon-instagram" />
                     </li>
@@ -90,7 +107,11 @@ const {
         }
         {
             facebook && (
-                <a href={`https://facebook.com/${facebook}`} target="_blank">
+                <a
+                    aria-label="facebook"
+                    href={`https://facebook.com/${facebook}`}
+                    target="_blank"
+                >
                     <li>
                         <i class="icon-facebook-squared" />
                     </li>
@@ -99,7 +120,11 @@ const {
         }
         {
             youtube && (
-                <a href={`https://youtube.com/${youtube}`} target="_blank">
+                <a
+                    aria-label="youtube"
+                    href={`https://youtube.com/${youtube}`}
+                    target="_blank"
+                >
                     <li>
                         <i class="icon-youtube" />
                     </li>
@@ -108,7 +133,11 @@ const {
         }
         {
             pinterest && (
-                <a href={`https://pinterest.com/${pinterest}`} target="_blank">
+                <a
+                    aria-label="pinterest"
+                    href={`https://pinterest.com/${pinterest}`}
+                    target="_blank"
+                >
                     <li>
                         <i class="icon-pinterest-squared" />
                     </li>
@@ -117,7 +146,11 @@ const {
         }
         {
             dribbble && (
-                <a href={`https://dribbble.com/${dribbble}`} target="_blank">
+                <a
+                    aria-label="dribbble"
+                    href={`https://dribbble.com/${dribbble}`}
+                    target="_blank"
+                >
                     <li>
                         <i class="icon-dribbble" />
                     </li>
@@ -126,7 +159,11 @@ const {
         }
         {
             flickr && (
-                <a href={`https://flickr.com/${flickr}`} target="_blank">
+                <a
+                    aria-label="flickr"
+                    href={`https://flickr.com/${flickr}`}
+                    target="_blank"
+                >
                     <li>
                         <i class="icon-flickr" />
                     </li>
@@ -135,7 +172,11 @@ const {
         }
         {
             telegram && (
-                <a href={`https://t.me/${telegram}`} target="_blank">
+                <a
+                    aria-label="telegram"
+                    href={`https://t.me/${telegram}`}
+                    target="_blank"
+                >
                     <li>
                         <i class="icon-telegram" />
                     </li>
@@ -145,6 +186,7 @@ const {
         {
             soundcloud && (
                 <a
+                    aria-label="soundcloud"
                     href={`https://soundcloud.com/${soundcloud}`}
                     target="_blank"
                 >
@@ -156,7 +198,7 @@ const {
         }
         {
             email && (
-                <a href={`mailto:${email}`} target="_blank">
+                <a aria-label="email" href={`mailto:${email}`} target="_blank">
                     <li>
                         <i class="icon-mail-alt" />
                     </li>
@@ -166,6 +208,7 @@ const {
         {
             stackoverflow && (
                 <a
+                    aria-label="stackoverflow"
                     href={`https://stackoverflow.com/users/${stackoverflow}`}
                     target="_blank"
                 >
@@ -180,11 +223,13 @@ const {
         navigation && (
             <nav class={`navigation about-footer ${condensedClass}`}>
                 <ul>
-                    {navigation.map(({ url, title }) => (
-                        <li>
-                            <a href={url}>{title}</a>
-                        </li>
-                    ))}
+                    {navigation.map(
+                        ({ url, title }: { url: string; title: string }) => (
+                            <li>
+                                <a href={url}>{title}</a>
+                            </li>
+                        )
+                    )}
                 </ul>
             </nav>
         )

@@ -35,8 +35,10 @@ const condensedClass = condensed_mobile.includes(pageType) ? 'condensed' : '';
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link
-            href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700"
             rel="stylesheet"
+            media="print"
+            onload="this.onload=null;this.removeAttribute('media');"
+            href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700&display=swap"
         />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
@@ -58,10 +60,14 @@ const condensedClass = condensed_mobile.includes(pageType) ? 'condensed' : '';
                                     <>
                                         <img
                                             class="light"
+                                            height="150"
+                                            width="150"
                                             src={`/${portfolio_image_dark}`}
                                             alt={name}
                                         />
                                         <img
+                                            height="150"
+                                            width="150"
                                             class="dark"
                                             src={`/${portfolio_image}`}
                                             alt={name}
@@ -69,6 +75,8 @@ const condensedClass = condensed_mobile.includes(pageType) ? 'condensed' : '';
                                     </>
                                 ) : (
                                     <img
+                                        height="150"
+                                        width="150"
                                         src={`/${portfolio_image}`}
                                         alt={name}
                                     />

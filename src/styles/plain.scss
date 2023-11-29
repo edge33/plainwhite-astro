@@ -101,7 +101,7 @@ main {
       text-align: center;
       font-size: 22px;
       margin-top: 0px;
-      color: #aaa;
+      color: #404040;
       white-space: pre-wrap;
       line-height: normal;
     }
@@ -134,10 +134,8 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  a {
-    margin-bottom: .5em;
-  }
   li {
+    margin-bottom: .5em;
     i {
       font-size: 34px;
     }

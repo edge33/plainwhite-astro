@@ -9,9 +9,16 @@ html.dark {
 	// :not(code, code *, .astro-code) {
 	// 	background-color: #171717;
 	// }
+
+
+
 	color: $dark_text_color;
 	border-color: #e6e6e6;
 
+	main .tagline {
+		color: #aaa;
+	}
+	
 	.about{
 		img.light {
 			display: none;
@@ -76,7 +83,7 @@ html.dark {
 		}
 	}
 
-	.posts-labelgroup:hover {
+	.posts-labelgroup {
 
 		i {
 			color: white;
