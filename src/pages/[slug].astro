@@ -2,6 +2,7 @@
 import getPosts from '../getPosts';
 import Layout from '../layouts/Layout.astro';
 import plainwhiteConfig from '../plainwhite.config';
+import formatDate from '../utils/formatDate';
 
 export const getStaticPaths = async () => {
     const posts = await getPosts();
@@ -26,7 +27,7 @@ const { Content } = await entry.render();
         </a>
         <div class="post-meta">
             <div class="post-date">
-                <i class="icon-calendar"></i>{entry.data.date.split(' ')[0]}
+                <i class="icon-calendar"></i>{formatDate(entry.data.date.split(' ')[0])}
             </div>
             {
                 entry.data.categories.split(' ').length && (

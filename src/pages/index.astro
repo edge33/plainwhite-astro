@@ -3,6 +3,7 @@ import Search from '../components/Search/Search.astro';
 import getPosts from '../getPosts';
 import Layout from '../layouts/Layout.astro';
 import plainwhiteConfig from '../plainwhite.config';
+import formatDate from '../utils/formatDate';
 
 const posts = await getPosts();
 
@@ -25,7 +26,7 @@ const { show_excerpts } = plainwhiteConfig;
                     <div class="post-meta">
                         <div class="post-date">
                             <i class="icon-calendar" />
-                            {`${p.data.date.split(' ')[0]}`}
+                            {`${formatDate(p.data.date.split(' ')[0])}`}
                         </div>
                         {p.data.categories.length && (
                             <ul class="post-categories">

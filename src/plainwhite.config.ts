@@ -9,7 +9,12 @@ export default {
     plainwhite: {
         name: 'Adam Denisov',
         tagline: 'Developer. Designer',
-        date_format: '%b %-d, %Y',
+        date_locale: 'en-UK',
+        date_format: {
+            day: 'numeric',
+            year: 'numeric',
+            month: 'short',
+        },
         sitemap: true, // set to true to generate sitemap.xml content
         search: true, // set to true to enable searchbar
         dark_mode: true, // set to true to add dark mode toggle

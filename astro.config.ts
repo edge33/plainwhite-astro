@@ -1,10 +1,10 @@
 import { defineConfig } from 'astro/config';
 import plainwhiteConfig from './src/plainwhite.config';
 import sitemap from '@astrojs/sitemap';
+
 const {
     plainwhite: { sitemap: enableSitemap },
 } = plainwhiteConfig;
-console.log('build with sitemap', enableSitemap);
 
 // https://astro.build/config
 export default defineConfig({
