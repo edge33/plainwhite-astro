@@ -1,6 +1,6 @@
 ---
-import './toggle.scss';
-import './dark.scss';
+import './toggle.css';
+import './dark.css';
 
 interface Props {
     condensedClass: string;
@@ -52,8 +52,10 @@ const { condensedClass } = Astro.props;
     <p>
         Dark Mode
         <i class="icon-moon"></i>
-        <label class="switch">
+        <label for="dark-mode-toggle" class="switch">
             <input
+                id="dark-mode-toggle"
+                name="dark-mode-toggle"
                 title="checkbox"
                 type="checkbox"
                 class="dark-mode-toggle"

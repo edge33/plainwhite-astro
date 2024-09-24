@@ -16,7 +16,7 @@ export default defineConfig({
             // theme: 'solarized-light',
             // Alternatively, provide multiple themes
             // https://github.com/antfu/shikiji#lightdark-dual-themes
-            experimentalThemes: {
+            themes: {
                 light: 'solarized-light',
                 dark: 'solarized-dark',
             },

@@ -9,26 +9,25 @@ interface Props {
 const { condensedClass } = Astro.props;
 
 const {
-    plainwhite: {
-        navigation,
-        social_links: {
-            linkedIn,
-            twitter,
-            github,
-            email,
-            flickr,
-            gitlab,
-            facebook,
-            instagram,
-            pinterest,
-            soundcloud,
-            youtube,
-            telegram,
-            dribbble,
-            stackoverflow,
-        },
-    },
+    plainwhite: { dark_mode, social_links },
 } = plainwhiteConfig;
+
+const {
+    linkedIn,
+    twitter,
+    github,
+    email,
+    flickr,
+    gitlab,
+    facebook,
+    instagram,
+    pinterest,
+    soundcloud,
+    youtube,
+    telegram,
+    dribbble,
+    stackoverflow,
+} = social_links as { [key: string]: string };
 ---
 
 <>
@@ -219,7 +218,7 @@ const {
             )
         }
     </ul>
-    {
+    <!-- {
         navigation && (
             <nav class={`navigation about-footer ${condensedClass}`}>
                 <ul>
@@ -233,10 +232,10 @@ const {
                 </ul>
             </nav>
         )
-    }
+    } -->
     <p class={`about-footer ${condensedClass}`}>
         &copy;
         {new Date().getFullYear()}
     </p>
-    <DarkMode condensedClass={condensedClass} />
+    {dark_mode && <DarkMode condensedClass={condensedClass} />}
 </>

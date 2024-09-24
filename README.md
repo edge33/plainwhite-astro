@@ -51,7 +51,7 @@ The placeholder portfolio image can be replaced by the desired image by placing 
 
 ```typescript
 plainwhite: {
-    portfolio_image: 'assets/portfolio.png' // the path from the base directory of the site to the image to display (no / at the start)
+    portfolio_image: 'assets/portfolio.png'; // the path from the base directory of the site to the image to display (no / at the start)
 }
 ```
 
@@ -60,8 +60,8 @@ To use a different image for dark mode, e.g. with different colors that work bet
 ```typescript
 plainwhite: {
     portfolio_image: 'assets/portfolio.png';
-    portfolio_image_dark: 'assets/portfolio_dark.png'
-};
+    portfolio_image_dark: 'assets/portfolio_dark.png';
+}
 ```
 
 **Comments (Disqus)**
@@ -70,8 +70,8 @@ Comments on posts can be enabled by specifying your disqus_shortname under plain
 
 ```typescript
 plainwhite: {
-    disqus_shortname: 'games'
-};
+    disqus_shortname: 'games';
+}
 ```
 
 **Google Analytics**
@@ -80,8 +80,8 @@ It can be enabled by specifying your analytics id under plainwhite in `plainwhit
 
 ```typescript
 plainwhite: {
-    analytics_id: '<YOUR ID>'
-};
+    analytics_id: '<YOUR ID>';
+}
 ```
 
 **Sitemap**
@@ -128,7 +128,7 @@ To condense it (moving some things to the bottom of the page and making the rest
 
 ```typescript
 plainwhite: {
-    condensed_mobile: ['home', 'page', 'post']
+    condensed_mobile: ['home', 'page', 'post'];
 }
 ```
 
@@ -143,8 +143,8 @@ The website will check the OS preferred color scheme and set the theme according
 
 ```typescript
 plainwhite: {
-    dark_mode: true
-};
+    dark_mode: true;
+}
 ```
 
 ![plainwhite dark theme previe](/dark.png)
@@ -155,14 +155,13 @@ Tagline can be multiline in this way (using backticks)
 
 ```typescript
 plainwhite: {
-
     tagline: `
     First Line.
 
     Second Line.
 
     Third Line.
-    `
+    `;
 }
 ```
 
@@ -184,7 +183,7 @@ You can specify a custom base URL (eg. example.com/blog/) by adding the followin
 
 ```typescript
 {
-  base: '/docs'
+    base: '/docs';
 }
 ```
 

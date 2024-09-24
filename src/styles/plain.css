@@ -1,0 +1,414 @@
+@import "ext/fonts";
+@import "ext/normalize";
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  line-height: 1.2em;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+}
+
+a {
+  color: #000;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #0a59b0;
+}
+
+h2 {
+  margin: 0.7em 0;
+}
+
+@media screen and (max-width: 768px) {
+  h2 {
+    margin: 0.3em 0;
+  }
+}
+
+main {
+  margin: 0 90px;
+  display: flex;
+  height: 100%;
+}
+
+@media screen and (min-width: 1600px) {
+  main {
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  main {
+    margin: 0 75px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  main {
+    margin: 0 35px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    margin: 0 10px;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  main {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  main .content {
+    max-width: calc(100% - 220px);
+    margin-left: 220px;
+    width: 100%;
+  }
+}
+
+main .about {
+  display: flex;
+  height: 100vh;
+  padding-bottom: 15vh;
+  min-width: 220px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  main .about {
+    height: auto;
+    padding: 5vh 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  main .about {
+    padding: 5vh 20px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  main .about {
+    position: fixed;
+    max-width: 280px;
+  }
+}
+
+main .about h2 {
+  font-size: 22px;
+  margin-top: 25px;
+  margin-bottom: 0;
+  color: #222;
+  font-weight: normal;
+}
+
+main .about .tagline {
+  text-align: center;
+  font-size: 22px;
+  margin-top: 0px;
+  color: #404040;
+  white-space: pre-wrap;
+  line-height: normal;
+}
+
+main .about img {
+  max-width: 150px;
+}
+
+main .about img.dark {
+  display: none;
+}
+
+main .about .about-header {
+  display: flex;
+  flex-direction: column;
+}
+
+main .about .about-header .about-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 17px;
+}
+
+#title a {
+  text-decoration: none;
+}
+
+.social {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.social li {
+  margin-bottom: 0.5em;
+}
+
+.social li i {
+  font-size: 34px;
+}
+
+.social li svg {
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  font-size: 34px;
+  margin-left: 0.2em;
+}
+
+.navigation {
+  width: 80%;
+}
+
+.navigation ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+.navigation ul li:last-child a {
+  border-bottom: 0;
+}
+
+.navigation ul a {
+  display: block;
+  font-family: 'Merriweather';
+  text-align: center;
+  padding: 1rem 0;
+  text-decoration: none;
+  border-bottom: 1px solid #ececec;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation ul a {
+    padding: 2rem 0;
+  }
+}
+
+.post-wrapper {
+  border-bottom: 1px solid #ececec;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.post-categories {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-categories li {
+  font-size: 14px;
+  float: left;
+  background-color: #e3e3e3;
+  padding: 5px 20px;
+  border-radius: 2px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .post-categories li {
+    margin-top: 5px;
+  }
+}
+
+.post-date {
+  margin-right: 10px;
+  color: #555;
+  min-width: 150px;
+}
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .post-meta {
+    flex-direction: column;
+    align-items: baseline;
+  }
+
+  .post-meta .post-date {
+    margin: 10px 0;
+  }
+}
+
+.post-link {
+  text-decoration: none;
+}
+
+.post-title {
+  line-height: 1.2em;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.posts,
+.post-container {
+  list-style-type: none;
+  margin: 45px 30px;
+}
+
+@media screen and (max-width: 480px) {
+
+  .posts,
+  .post-container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .posts,
+  .post-container {
+    padding: 0 !important;
+    margin-top: 0;
+  }
+}
+
+.post-container {
+  padding-left: 30px;
+}
+
+.post {
+  font-family: "Merriweather", sans-serif;
+  font-weight: 300;
+  color: #222;
+  line-height: 1.9em;
+}
+
+.post p {
+  margin-top: 10px;
+}
+
+.post a {
+  color: #0a59b0;
+  text-decoration: none;
+  transition: border-bottom 0.4s;
+}
+
+.post a:hover {
+  border-bottom: 0.5px solid #0a59b0;
+}
+
+.post h1,
+.post h2,
+.post h3,
+.post h4,
+.post h5,
+.post h6 {
+  font-family: Raleway, sans-serif;
+}
+
+.posts-labelgroup {
+  margin: 0 0 0.67em 0;
+  display: flex;
+  align-items: baseline;
+  border-bottom: 1px solid #eee;
+}
+
+#posts-label {
+  font-size: 15px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 10px 0;
+  font-weight: normal;
+  margin: 0;
+  overflow: hidden;
+  transition: width 0.1s;
+}
+
+table th,
+table td {
+  padding: 8px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+table th {
+  background-color: #eee;
+  font-family: Raleway;
+}
+
+footer {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .about .about-header.condensed {
+    align-items: start;
+    align-self: start;
+  }
+
+  .about .about-header.condensed .about-title {
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+
+  .about .about-header.condensed .about-title img {
+    max-height: 40px;
+  }
+
+  .about .about-header.condensed .about-title h2 {
+    margin: 0 10px;
+  }
+
+  .about .about-header.condensed .tagline {
+    font-size: 18px;
+    margin-bottom: 0px;
+  }
+
+  .about .about-footer.condensed {
+    display: none;
+  }
+
+  footer.condensed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 40px;
+    border-top: 1px solid #eee;
+  }
+}
+
+@media screen and (max-width: 768px) and (max-width: 480px) {
+  footer.condensed {
+    margin: 0 20px;
+  }
+}
+
+.astro-code {
+  margin: 0;
+  padding: 21px 20px;
+}

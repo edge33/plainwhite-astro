@@ -3,7 +3,7 @@
 export default {
     // i am just using the standard config, change if you need something else
 
-    trailingComma: "es5",
+    trailingComma: 'es5',
     tabWidth: 4,
     semi: true,
     singleQuote: true,
@@ -13,8 +13,8 @@ export default {
         {
             files: '**/*.astro',
             options: {
-                parser: 'astro'
-            }
-        }
-    ]
-}
+                parser: 'astro',
+            },
+        },
+    ],
+};

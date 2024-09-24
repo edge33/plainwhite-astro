@@ -11,9 +11,9 @@ export default {
         tagline: 'Developer. Designer',
         date_locale: 'en-UK',
         date_format: {
-            day: 'numeric',
-            year: 'numeric',
-            month: 'short',
+            day: 'numeric' as const,
+            year: 'numeric' as const,
+            month: 'short' as const,
         },
         sitemap: true, // set to true to generate sitemap.xml content
         search: true, // set to true to enable searchbar
