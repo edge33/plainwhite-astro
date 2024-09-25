@@ -1,4 +1,3 @@
-@import "ext/fonts";
 @import "ext/normalize";
 
 *,
@@ -159,29 +158,9 @@ main .about .about-header .about-title {
   text-decoration: none;
 }
 
-.social {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
 
-.social li {
-  margin-bottom: 0.5em;
-}
 
-.social li i {
-  font-size: 34px;
-}
 
-.social li svg {
-  width: 1em;
-  margin-right: 0.2em;
-  text-align: center;
-  font-size: 34px;
-  margin-left: 0.2em;
-}
 
 .navigation {
   width: 80%;

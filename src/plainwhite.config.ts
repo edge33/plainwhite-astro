@@ -30,7 +30,7 @@ export default {
             linkedIn: 'in/samarsault',
             // dribbble: 'samarsault',
             // flickr: 'samarsault',
-            // instagram: 'samarsault',
+            instagram: 'samarsault',
             // pinterest: 'samarsault',
             // youtube: 'samarsault',
             // facebook: 'samarsault',
