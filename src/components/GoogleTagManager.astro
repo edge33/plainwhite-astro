@@ -5,7 +5,7 @@ const {
 } = plainwhiteConfig;
 ---
 
-<script define:vars={{ analytics_id }}>
+<script is:inline define:vars={{ analytics_id }}>
     if (!analytics_id) {
         return;
     }
@@ -16,6 +16,7 @@ const {
 
     window.dataLayer = window.dataLayer || [];
     function gtag() {
+        // eslint-disable-next-line prefer-rest-params
         window.dataLayer.push(arguments);
     }
     gtag('js', new Date());

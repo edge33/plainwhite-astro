@@ -6,7 +6,7 @@ const {
 ---
 
 
-{dark_mode && <script>
+{dark_mode && <script is:inline>
     const getCookie = (name) => {
         const v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
         return v ? v[2] : null;
@@ -17,6 +17,6 @@ const {
         window.matchMedia('(prefers-color-scheme: dark)').matches;
     const theme = getCookie('theme');
     if ((theme === null && userPrefersDark) || theme === 'dark') {
-        document.querySelector('html').classList.add('dark');
+        document.querySelector('html')?.classList.add('dark');
     }
 </script>}

@@ -1,0 +1,140 @@
+html.dark {
+	background-color: #171717;
+}
+
+.dark,
+.dark * {
+	color: #f6f6f6;
+	border-color: #e6e6e6;
+}
+
+.dark main .tagline,
+.dark * main .tagline {
+	color: #aaa;
+}
+
+.dark .about img.light,
+.dark * .about img.light {
+	display: none;
+}
+
+.dark .about img.dark,
+.dark * .about img.dark {
+	display: inline;
+}
+
+.dark .post p,
+.dark * .post p {
+	color: #ddd;
+}
+
+.dark .social [class^="icon-"],
+.dark * .social [class^="icon-"] {
+	color: #f6f6f6;
+}
+
+.dark .social svg,
+.dark * .social svg {
+	fill: #f6f6f6;
+}
+
+.dark #posts-label,
+.dark * #posts-label {
+	color: #f6f6f6;
+	border-bottom: 1px solid #272727;
+}
+
+.dark .post-categories li,
+.dark * .post-categories li {
+	background-color: #333;
+	color: #fff;
+}
+
+.dark a,
+.dark * a {
+	color: #4da3ff;
+}
+
+.dark #title a,
+.dark * #title a {
+	color: #fff;
+}
+
+.dark #title a:hover,
+.dark * #title a:hover {
+	color: #4da3ff;
+}
+
+.dark .posts-labelgroup,
+.dark * .posts-labelgroup {
+	border-bottom: 1px solid #333;
+}
+
+.dark .posts-labelgroup .search-results,
+.dark * .posts-labelgroup .search-results {
+	background-color: #333;
+}
+
+.dark .posts-labelgroup .search-results a,
+.dark * .posts-labelgroup .search-results a {
+	color: white;
+}
+
+.dark .posts-labelgroup .search-results a:hover,
+.dark * .posts-labelgroup .search-results a:hover {
+	background-color: #171717;
+}
+
+.dark .posts-labelgroup .search-section i,
+.dark * .posts-labelgroup .search-section i {
+	background-color: transparent;
+}
+
+.dark .posts-labelgroup i,
+.dark * .posts-labelgroup i {
+	color: white;
+}
+
+.dark .posts-labelgroup input,
+.dark * .posts-labelgroup input {
+	color: white;
+}
+
+.dark .posts-labelgroup.focus-within .search-section,
+.dark * .posts-labelgroup.focus-within .search-section {
+	background-color: #333;
+}
+
+.dark .posts-labelgroup.focus-within input,
+.dark * .posts-labelgroup.focus-within input {
+	color: #f6f6f6;
+}
+
+.dark .posts-labelgroup.focus-within i,
+.dark * .posts-labelgroup.focus-within i {
+	color: white;
+}
+
+.dark table th,
+.dark table td {
+	border: 1px solid #333;
+}
+
+.dark table th {
+	background-color: #0d0d0d;
+}
+
+.dark .astro-code,
+.dark .astro-code span {
+	color: var(--shiki-dark) !important;
+	background-color: var(--shiki-dark-bg) !important;
+	/* Optional, if you also want font styles */
+	font-style: var(--shiki-dark-font-style) !important;
+	font-weight: var(--shiki-dark-font-weight) !important;
+	text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+.astro-code {
+	margin: 0;
+	padding: 21px 20px;
+}
