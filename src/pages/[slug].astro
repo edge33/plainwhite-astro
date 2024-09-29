@@ -1,8 +1,8 @@
 ---
 import getPosts from '../getPosts';
 import Layout from '../layouts/Layout.astro';
-import plainwhiteConfig from '../plainwhite.config';
 import formatDate from '../utils/formatDate';
+// import Disqus from '../components/Disqus.astro';
 
 export const getStaticPaths = async () => {
     const posts = await getPosts();
@@ -11,10 +11,6 @@ export const getStaticPaths = async () => {
         props: { entry },
     }));
 };
-
-const {
-    plainwhite: { disqus_shortname },
-} = plainwhiteConfig;
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
@@ -44,31 +40,6 @@ const { Content } = await entry.render();
         <div class="post">
             <Content />
         </div>
-        {disqus_shortname &&
-            <>
-                <div id="disqus_thread" style="margin-top:25px"></div>
-                <script is:inline define:vars={{ disqus_shortname }}>
-                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                    const disqus_config = function () {
-    this.page.url = '{{ page.url | absolute_url }}';
-    this.page.identifier = '{{ page.url | absolute_url }}';
-};
-                    (function () {
-                        const d = document,
-        s = d.createElement('script');
-                        s.src = `https://${disqus_shortname}.disqus.com/embed.js`;
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                    })();
-                </script>
-                <noscript
-                    >Please enable JavaScript to view the <a
-                        href="https://disqus.com/?ref_noscript"
-                        rel="nofollow">comments powered by Disqus.</a
-                    >
-                </noscript>
-            </>
-        }
-
+        <!-- <Disqus /> -->
     </div>
 </Layout>
