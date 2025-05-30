@@ -37,7 +37,7 @@ import './search.css';
             searchInput: $searchbar,
             resultsContainer: $searchResults,
             json: '/search.json',
-            searchResultTemplate: '<a href="{url}" target="_blank">{title}</a>',
+            searchResultTemplate: '<a href="posts{url}" target="_blank">{title}</a>',
             noResultsText: '',
         });
 
@@ -53,7 +53,7 @@ import './search.css';
         const $postLabel = document.getElementById('posts-label');
         const labelWidth = $postLabel.scrollWidth;
 
-        $postLabel.style.width = labelWidth + 'px';
+        $postLabel.style.width = `${labelWidth  }px`;
 
         $labelGroup.addEventListener(
             'click',
@@ -77,7 +77,7 @@ import './search.css';
         const searchCollapse = () => {
             $searchResults.style.display = 'none';
             $labelGroup.setAttribute('class', 'posts-labelgroup');
-            $postLabel.style.width = labelWidth + 'px';
+            $postLabel.style.width = `${labelWidth  }px`;
             document.body.onclick = null;
         };
     })();

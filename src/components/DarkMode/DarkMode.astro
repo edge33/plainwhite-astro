@@ -27,11 +27,11 @@ const { condensedClass } = Astro.props;
         const d = new Date();
         d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
         document.cookie =
-            name +
-            '=' +
-            value +
-            ';path=/;SameSite=strict;expires=' +
-            d.toUTCString();
+            `${name 
+        }=${ 
+        value 
+        };path=/;SameSite=strict;expires=${ 
+        d.toUTCString()}`;
     };
 
     function toggleSwitch() {
@@ -64,7 +64,10 @@ const { condensedClass } = Astro.props;
                 class="dark-mode-toggle"
                 placeholder=" "
             />
-            <span class="slider round" id="toggle"></span>
+            <span class="slider round" id="toggle"/>
+            <p style="display: none;">
+                dark mode toggle
+            </p>
         </label>
     </p>
 </div>

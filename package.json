@@ -10,21 +10,21 @@
     "astro": "astro",
     "lint": "eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\""
   },
-  "dependencies": {
-  },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/sitemap": "^3.4.0",
-    "astro": "^5.8.1",
-    "typescript": "^5.6.2",
+    "@fontsource/merriweather": "^5.2.7",
+    "@fontsource/raleway": "^5.2.5",
     "@typescript-eslint/eslint-plugin": "^8.6.0",
     "@typescript-eslint/parser": "^8.6.0",
+    "astro": "^5.8.1",
     "eslint": "^9.11.0",
     "eslint-plugin-astro": "^1.2.4",
     "eslint-plugin-jsx-a11y": "^6.10.0",
     "prettier": "^3.3.3",
     "prettier-config-standard": "^7.0.0",
     "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.6.2",
     "typescript-eslint": "^8.7.0"
   },
   "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b"
