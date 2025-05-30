@@ -8,7 +8,7 @@ const {
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'http://localhost',
+    site: 'http://localhost:4321',
     markdown: {
         shikiConfig: {
             // Choose from Shiki's built-in themes (or add your own)
@@ -29,5 +29,4 @@ export default defineConfig({
         },
     },
     ...(enableSitemap ? { integrations: [sitemap()] } : {}),
-    // integrations: [sitemap()],
 });
